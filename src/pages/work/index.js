@@ -11,10 +11,10 @@ const IndexPage = ({data}) => (
   );
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query WorkIndexQuery {
     allMarkdownRemark(
       limit: 10
-      filter: { frontmatter: {layout : {eq : "post"}}}
+      filter: { frontmatter: {layout : {eq : "work"}}}
     ) {
       edges {
         node {
@@ -23,7 +23,7 @@ export const pageQuery = graphql`
             title
             subtitle
             date
-            layout
+
             categories
           }
         }

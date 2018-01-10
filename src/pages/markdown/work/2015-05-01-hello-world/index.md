@@ -2,7 +2,7 @@
 title: "work"
 date: "2016-03-01T22:12:03.284Z"
 layout: work
-path: "/blog/world/"
+path: "/work/world/"
 categories:
   - Typography
   - Movable Type
