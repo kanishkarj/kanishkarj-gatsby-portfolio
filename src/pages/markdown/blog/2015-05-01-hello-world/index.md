@@ -1,7 +1,7 @@
 ---
 title: "The Birth of Movable Type"
-date: "2016-03-01T22:12:03.284Z"
-layout: post
+date: "28 May, 2015"
+layout: "post"
 subtitle: "Johannes Gensfleisch zur Laden zum Gutenberg (c. `1398` – `1468`) was a"
 path: "/blog/hello-world/"
 categories:

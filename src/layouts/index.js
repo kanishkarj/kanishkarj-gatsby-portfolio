@@ -5,12 +5,11 @@ import Helmet from 'react-helmet'
 
 import style from './index.scss'
 
-const pathPrefix =
-  process.env.NODE_ENV === 'development' ? '' : __PATH_PREFIX__
+
 
 const Header = () => (
   <div>
-    <nav className="navbar navbar-expand navbar-dark fixed-top flex-column flex-md-row bg-dark">
+    <nav  className="navbar navbar-expand navbar-dark fixed-top flex-column flex-md-row">
       <div className="ml-auto mr-auto" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto mb-3 mt-3">
           <li className={'nav-item'}>
@@ -19,12 +18,12 @@ const Header = () => (
             </Link>
           </li>
           <li className={'nav-item'}>
-            <Link to="/" className="nav-link">
+            <Link to="/work/" className="nav-link">
               Work
             </Link>
           </li>
           <li className={'nav-item'}>
-            <Link to="/" className="nav-link">
+            <Link to="/blog/" className="nav-link">
               Blog
             </Link>
           </li>
@@ -43,22 +42,13 @@ const Header = () => (
 const CustFooter = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-darkflex-column flex-md-row bg-dark">
-        <a class="navbar-brand" href="#">
-          <small>
-            <b>kanishkarj.github.io</b>
-          </small>
-        </a>
-        <div className="ml-auto" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto ">
-            <li
-              className={
-                location.pathname === '/' ? 'nav-item active' : 'nav-item'
-              }
-              >
-                <Link to="/" className="nav-link">
-                <small>powered by github</small>
-              </Link>
+      <nav className="navbar navbar-toggleable-xl fixed-bottom navbar-expand navbar-dark flex-column flex-md-row">
+        <div className="mr-auto ml-auto">
+          <ul className="navbar-nav">
+            <li className='nav-item'>
+                <a href="https://www.gatsbyjs.org/" target="_blank" className="nav-link">
+                  <small>powered by @GatsbyJS</small>
+                </a>
             </li>
           </ul>
         </div>
@@ -79,14 +69,11 @@ const TemplateWrapper = ({children}) => (<div>
     ]}/>
   <Header/>
 
-  <img
-    className="img-fluid"
-    src={pathPrefix + 'background.jpg'}
-    alt=""
-  />
-  <div className={'container'}>
+
+  <div>
     {children()}
   </div>
+
   <CustFooter/>
 </div>)
 

@@ -36,5 +36,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Raleway`,
+          `Josefin Sans` // you can also specify font weights and styles
+        ]
+      }
+    }
   ],
 }

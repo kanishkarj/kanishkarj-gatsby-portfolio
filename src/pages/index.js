@@ -1,12 +1,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import AboutComponent from '../components/about'
+import BlogComponent from '../components/blog'
+
 const IndexPage = () => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <div className="header-image-container"/>
+    <div className="container mb-5">
+      <AboutComponent/>
+      <BlogComponent/>
+    </div>
   </div>
 )
 

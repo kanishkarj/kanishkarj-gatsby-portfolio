@@ -1,1 +1,28 @@
 @import "~bootstrap/scss/bootstrap";
+
+nav{
+  font-family: 'Raleway';
+  background-color: #12182E;
+}
+
+.font-rale{
+  font-family: 'Raleway';
+}
+
+.font-jose{
+  font-family: 'Josefin Sans';
+}
+
+.header-image-container{
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/713644/pexels-photo-713644.jpeg?dl&fit=crop&w=4256&h=2832");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  object-fit: cover;
+  @media screen and (max-width: 900px) {
+    height: 15em;
+  }
+  height: 30em;
+
+}

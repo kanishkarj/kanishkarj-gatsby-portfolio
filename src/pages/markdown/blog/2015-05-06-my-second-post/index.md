@@ -1,8 +1,8 @@
 ---
 title: My Second Post!
 subtitle: "Johannes Gensfleisch zur Laden zum Gutenberg (c. `1398` – `1468`) was a"
-date: "2015-05-06T23:46:37.121Z"
-layout: post
+date: "28 May, 2015"
+layout: "post"
 path: "/blog/my-second-post/"
 categories:
   - FrontEnd
