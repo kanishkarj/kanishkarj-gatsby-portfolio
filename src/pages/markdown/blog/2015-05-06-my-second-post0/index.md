@@ -2,11 +2,11 @@
 title: My Second Post!
 date: "28 May, 2015"
 layout: "post"
-path: "/blog/my-second-post/"
+path: "/blog/my-second-postd/"
 categories:
   - FrontEnd
 subtitle: "Civil society; save lives pathway to a better life public-private partnerships solution, tackle, protect UNHCR social movement Jane Addams sustainable campaign respond equality."
-headerImg: "https://images.pexels.com/photos/792948/pexels-photo-792948.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
+headerImg: "https://images.pexels.com/photos/792385/pexels-photo-792385.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
 ---
 
 Wow! I love blogging so much already.

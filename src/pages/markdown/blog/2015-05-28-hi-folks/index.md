@@ -6,6 +6,7 @@ layout: "post"
 path: "/blog/hi-folks/"
 categories:
   - Markdown
+headerImg: "https://images.pexels.com/photos/789555/pexels-photo-789555.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
 ---
 
 # An h1 header

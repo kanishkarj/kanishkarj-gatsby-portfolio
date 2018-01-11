@@ -1,30 +1,55 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const BlogComponent = ({data}) => (
-  <div className="mt-5 mb-3 font-rale">
-  <h2 className="text-center">
-    <b>BLOG</b>
-  </h2>
-  <hr/>
+const BlogComponent = ({data}) => {
+  return (<div className="container">
+    <div className="row mt-5 mb-5">
   <div className="container">
-    <div className="row">
-      <div className="col-md-4">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" className="card-link">Card link</a>
-            <a href="#" className="card-link">Another link</a>
-          </div>
-        </div>
-      </div>
+
+      {
+        data.map(post => {
+
+          const postData = post.node.frontmatter;
+
+          return (
+            <div className="container">
+              <div className="row">
+              <Link className="row col-md-6 card card-link mb-2 mt-2 ml-0">
+                <div className="container">
+                  <div className="row p-0">
+                    <div className="col-md-6 p-0">
+                      <img src={postData.headerImg} className="img-fluid img" alt=""/>
+                    </div>
+                    <div className="card-body col-md-6">
+                      <h4 className="card-title">{postData.title}</h4>
+                      <h5 className="card-subtitle mb-2 text-muted">
+                        <time>{postData.date}</time>
+                      </h5>
+                      <ul className="list-inline">
+                        {
+                          postData.categories.map((cat) => (<li className="list-inline-item">
+                            <h5>
+                              <span className="badge badge-secondary">{cat}</span>
+                            </h5>
+                          </li>))
+                        }
+                      </ul>
+                      <p className="card-text">{postData.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            </div>
+        )
+        })
+      }
     </div>
-  </div>
-</div>)
+      <div className="row mt-5"></div>
+      <div className="row mt-5"></div>
+    </div>
 
-
-
+  </div>)
+}
 
 export default BlogComponent;

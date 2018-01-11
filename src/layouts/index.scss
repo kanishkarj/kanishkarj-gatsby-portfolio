@@ -1,8 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 
+$theme-primary: #12182E;
+$theme-secondary: #46344E;
+$theme-main: #e9ecef;
+
 nav{
   font-family: 'Raleway';
-  background-color: #12182E;
+  background-color: $theme-primary;
 }
 
 .font-rale{
@@ -25,4 +29,16 @@ nav{
   }
   height: 30em;
 
+}
+
+.full-height {
+  height: 100%;
+}
+
+.card-link {
+  color: $theme-primary!important;
+  &:hover{
+    color: $theme-secondary!important;
+    background-color: $theme-main!important;
+  }
 }

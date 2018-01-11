@@ -25,6 +25,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             date
             layout
             categories
+            headerImg
           }
         }
       }
