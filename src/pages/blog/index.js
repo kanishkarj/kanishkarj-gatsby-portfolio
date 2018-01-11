@@ -46,7 +46,7 @@ const IndexPage = ({data}) => (<div>
 export const pageQuery = graphql `
   query IndexQuery {
     allMarkdownRemark(
-      limit: 10
+      limit: 100
       filter: { frontmatter: {layout : {eq : "post"}}}
     ) {
       edges {

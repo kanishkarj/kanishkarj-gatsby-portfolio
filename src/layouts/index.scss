@@ -35,6 +35,10 @@ nav{
   height: 100%;
 }
 
+.square-border {
+  border-radius: 0!important;
+}
+
 .card-link {
   color: $theme-primary!important;
   &:hover{

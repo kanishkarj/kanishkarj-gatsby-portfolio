@@ -2,9 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const BlogComponent = ({data}) => {
-  return (<div className="container">
+  return (<div className="container mt-5">
+    <hr/>
+    <h2 className="text-center">
+      <b>BLOG</b>
+    </h2>
+    <hr/>
     <div className="row mt-5 mb-5">
-  <div className="container">
 
       {
         data.map(post => {
@@ -12,39 +16,30 @@ const BlogComponent = ({data}) => {
           const postData = post.node.frontmatter;
 
           return (
-            <div className="container">
-              <div className="row">
-              <Link className="row col-md-6 card card-link mb-2 mt-2 ml-0">
-                <div className="container">
-                  <div className="row p-0">
-                    <div className="col-md-6 p-0">
-                      <img src={postData.headerImg} className="img-fluid img" alt=""/>
-                    </div>
-                    <div className="card-body col-md-6">
-                      <h4 className="card-title">{postData.title}</h4>
-                      <h5 className="card-subtitle mb-2 text-muted">
-                        <time>{postData.date}</time>
-                      </h5>
-                      <ul className="list-inline">
-                        {
-                          postData.categories.map((cat) => (<li className="list-inline-item">
-                            <h5>
-                              <span className="badge badge-secondary">{cat}</span>
-                            </h5>
-                          </li>))
-                        }
-                      </ul>
-                      <p className="card-text">{postData.subtitle}</p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            </div>
+            <div className="col-md-4 mt-2 mb-2">
+            <Link className="card card-link mt-2 mb-2 full-height">
+              <img className="card-img-top" src={post.node.frontmatter.headerImg} alt=""/>
+              <div className="card-body">
+                <h5 className="card-title">{post.node.frontmatter.title}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  <time>{post.node.frontmatter.date}</time>
+                </h6>
+                <ul className="list-inline">
+                  {
+                    post.node.frontmatter.categories.map((cat) => (<li className="list-inline-item">
+                      <h6>
+                        <span className="badge badge-secondary">{cat}</span>
+                      </h6>
+                    </li>))
+                  }
+                </ul>
+                <p className="card-text">{post.node.frontmatter.subtitle}</p>
+              </div>
+            </Link>
+          </div>
         )
         })
       }
-    </div>
       <div className="row mt-5"></div>
       <div className="row mt-5"></div>
     </div>
