@@ -11,19 +11,23 @@ const IndexPage = ({data}) => (<div>
     </div>
   </section>
   <div className="container  mb-5">
-    <form className="">
+    <form className="" action="https://formcarry.com/s/Sy_0bp44M" method="post">
       <div className="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" className="form-control square-border" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+        <input name="email" type="email" className="form-control square-border" aria-describedby="emailHelp" placeholder="Enter email"/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div className="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" className="form-control square-border" id="exampleInputPassword1" placeholder="Password"/>
+        <label for="exampleInputEmail1">First Name</label>
+        <input name="firstname" type="text" className="form-control square-border" aria-describedby="emailHelp" placeholder="Enter email"/>
       </div>
-      <div className="form-check">
-        <input type="checkbox" className="form-check-input square-border" id="exampleCheck1"/>
-        <label className="form-check-label" for="exampleCheck1">Check me out</label>
+      <div className="form-group">
+        <label for="exampleInputEmail1">Subject</label>
+        <input name="subject" type="text" className="form-control square-border" aria-describedby="emailHelp" placeholder="Enter email"/>
+      </div>
+      <div className="form-group">
+          <label for="exampleInputEmail1">Message</label>
+          <textarea name="message" className="form-control" rows="12"></textarea>
       </div>
       <button type="submit" className="btn btn-primary square-border">Submit</button>
     </form>
