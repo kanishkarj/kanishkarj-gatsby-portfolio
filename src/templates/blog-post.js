@@ -35,6 +35,8 @@ export default function Template({data}) {
       <br/>
       <h5 className="ml-3 text-muted">{post.frontmatter.date}</h5>
       <br/>
+      <img src={post.frontmatter.headerImg} className=" mb-5 img-fluid full-width" alt=""/>
+      <br/>
       <div>
         <div dangerouslySetInnerHTML={{
             __html: post.html
@@ -70,6 +72,7 @@ export const postQuery = graphql `
         path
         title
         subtitle
+        headerImg
         date
       }
     }
