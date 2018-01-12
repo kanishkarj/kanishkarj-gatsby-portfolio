@@ -1,10 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `kanishkarj.github.com`,
+    siteDescr: `Portfolio`,
+    siteAuthor: `Kanishkar J`,
+    siteUrl:'https://kanishkarj.github.com/',
+    siteEmailUrl: `kanishkarj@hotmail.com`,
+    siteEmailPretty: `kanishkarj@hotmail.com`,
+    siteTwitterUrl: `https://twitter.com/_kanishkarj_`,
+    siteTwitterPretty: `@_kanishkarj_`,
+    siteGithubUrl:'https://github.com/kanishkarj',
+    siteGithubPretty:'kanishkarj',
+    siteGitconnectedUrl:'https://gitconnected.com/kanishkarj',
+    siteGitconnectedPretty:'kanishkarj',
+    siteLinkedInUrl:'https://www.linkedin.com/in/kanishkar-j-5ba02ab8/',
+    siteLinkedInPretty:'kanishkar-j-5ba02ab8',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sass',
+    `gatsby-transformer-javascript-static-exports`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {

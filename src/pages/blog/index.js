@@ -15,7 +15,7 @@ const IndexPage = ({data}) => (<div>
       {
         data.allMarkdownRemark.edges.map(post => (
           <div className="col-md-4 mt-2 mb-2">
-          <Link className="card card-link mt-2 mb-2 full-height">
+          <Link className="card card-link mt-2 mb-2 full-height" to={post.node.frontmatter.path}>
             <img className="card-img-top" src={post.node.frontmatter.headerImg} alt=""/>
             <div className="card-body">
               <h5 className="card-title">{post.node.frontmatter.title}</h5>
@@ -36,10 +36,10 @@ const IndexPage = ({data}) => (<div>
           </Link>
         </div>))
       }
-      <div className="row mt-5"></div>
-      <div className="row mt-5"></div>
     </div>
-
+    <div className="row mt-5"></div>
+    <div className="row mt-5"></div>
+    <div className="row mt-5"></div>
   </div>
 </div>);
 
