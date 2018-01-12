@@ -74,15 +74,7 @@ const CustFooter = (data) => {
 const TemplateWrapper = ({children,data}) => {
   let meta = data.site.meta;
   return(<div>
-  <Helmet title="Gatsby Default Starter" meta={[
-      {
-        name: 'description',
-        content: 'Sample'
-      }, {
-        name: 'keywords',
-        content: 'sample, something'
-      }
-    ]}/>
+
   <Header/>
 
   <div>

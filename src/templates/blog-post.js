@@ -2,8 +2,30 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 export default function Template({data}) {
+  const meta = data.site.meta;
   const {markdownRemark: post} = data;
   return (<div>
+    <Helmet title={meta.siteUrl} meta={[
+        {
+          name: 'twitter:card',
+          content: 'summary'
+        }, {
+          name: 'twitter:site',
+          content: meta.siteTwitterUrl
+        }, {
+          property: 'og:title',
+          content: post.frontmatter.title
+        }, {
+          property: 'og:type',
+          content: 'article'
+        }, {
+          property: 'og:description',
+          content: post.frontmatter.subtitle
+        }, {
+          property: 'og:url',
+          content: meta.siteUrl + post.frontmatter.path
+        }
+      ]}/>
     <div className="row mt-5"></div>
     <div className="row mt-5"></div>
     <div className="row mt-5"></div>
