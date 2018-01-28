@@ -83,6 +83,9 @@ const TemplateWrapper = ({children,data}) => {
   </div>
 
   <CustFooter data={meta}/>
+
+    <script src="https://use.fontawesome.com/5ee9b89447.js"></script>
+
 </div>
 )}
 

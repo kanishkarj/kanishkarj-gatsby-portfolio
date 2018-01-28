@@ -12,7 +12,7 @@ const ProjectComponent = ({data}) => {
 
       {
         data.map(post => (
-          <div className="col-md-4 mt-2 mb-2">
+          <div key={post.node.id} className="col-md-4 mt-2 mb-2">
           <Link className="card card-link mt-2 mb-2 full-height" to={post.node.frontmatter.path}>
             <div className="card-body">
               <h5 className="card-title">{post.node.frontmatter.title}</h5>

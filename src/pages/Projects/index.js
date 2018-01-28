@@ -6,8 +6,10 @@ const IndexPage = ({data}) => (<div>
   <div className="row mt-5"></div>
   <section className="jumbotron text-center mt-4">
     <div className="container">
-      <h1 className="jumbotron-heading">Album example</h1>
-      <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+      <h1 className="jumbotron-heading">My Work</h1>
+      <p className="lead text-muted">
+        My work is majorly in Javascript and Python. I have worked with Node js and Django in the realm of backend web development. I also have worked with Angular js, React js and Vue js in frontend development. 
+      </p>
     </div>
   </section>
   <div className="container">

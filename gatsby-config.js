@@ -55,6 +55,7 @@ module.exports = {
       options: {
         fonts: [
           `Raleway`,
+          'Source Sans Pro',
           `Josefin Sans` // you can also specify font weights and styles
         ]
       }

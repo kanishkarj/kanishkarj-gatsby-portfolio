@@ -8,7 +8,7 @@ $theme-secondary: #46344E;
 $theme-main: #e9ecef;
 
 nav{
-  font-family: 'Raleway';
+  font-family: 'Source Sans Pro';
   background-color: $theme-primary;
 }
 
@@ -63,4 +63,8 @@ nav{
 .card-img-overlay{
   background-color: white!important;
   opacity: 0.25!important;
+}
+
+.home-about{
+  font-family: Raleway;
 }

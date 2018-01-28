@@ -16,7 +16,7 @@ const BlogComponent = ({data}) => {
           const postData = post.node.frontmatter;
 
           return (
-            <div className="col-md-4 mt-2 mb-2">
+            <div key={postData.id} className="col-md-4 mt-2 mb-2">
             <Link className="card card-link mt-2 mb-2 full-height" to={post.node.frontmatter.path}>
               <img className="card-img-top" src={post.node.frontmatter.headerImg} alt=""/>
               <div className="card-body">
