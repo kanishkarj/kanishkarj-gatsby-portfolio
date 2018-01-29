@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~prismjs/themes/prism-solarizedlight.css";
 
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
@@ -22,15 +23,15 @@ nav{
 
 .header-image-container{
   width: 100%;
-  background-image: url("https://images.pexels.com/photos/713644/pexels-photo-713644.jpeg?dl&fit=crop&w=4256&h=2832");
+  background-image: url("https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?dl&fit=crop&w=5106&h=3404");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   object-fit: cover;
   @media screen and (max-width: 900px) {
-    height: 15em;
+    height: 10em;
   }
-  height: 30em;
+  height: 15em;
 
 }
 
