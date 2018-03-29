@@ -1,0 +1,2 @@
+webpackJsonp([60335399758886],{89:function(t,i){t.exports={data:{site:{meta:{title:"kanishkarj.github.com",siteDescr:"Portfolio",siteUrl:"https://kanishkarj.github.com/",siteAuthor:"Kanishkar J",siteTwitterUrl:"https://twitter.com/_kanishkarj_",siteGithubUrl:"https://github.com/kanishkarj",siteEmailUrl:"kanishkarj@hotmail.com",siteLinkedInUrl:"https://www.linkedin.com/in/kanishkar-j-5ba02ab8/",siteGitconnectedUrl:"https://gitconnected.com/kanishkarj"}}},layoutContext:{}}}});
+//# sourceMappingURL=path----e4434e525c01a8cba512.js.map
