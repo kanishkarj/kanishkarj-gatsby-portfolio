@@ -34,7 +34,6 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 750,
-              linkImagesToOriginal: false,
               wrapperStyle: 'margin-bottom: 1.0725rem;',
             },
           },
@@ -50,6 +49,8 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

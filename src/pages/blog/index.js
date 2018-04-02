@@ -8,7 +8,7 @@ const IndexPage = ({data}) => (<div>
     <div className="container">
       <h1 className="jumbotron-heading">Blog</h1>
       <p className="lead text-muted">
-        I write blogs mainly on Application development, development tooling, and on Linux. 
+        I write blogs mainly on Application development, development tooling, and on Linux.
       </p>
     </div>
   </section>
@@ -60,7 +60,15 @@ export const pageQuery = graphql `
             date
             layout
             categories
-            headerImg
+            headerImg: ImageSharp {
+               childImageSharp {
+                 responsiveSizes(maxWidth: 400) {
+                   src
+                   srcSet
+                   sizes
+                 }
+               }
+             }
           }
         }
       }

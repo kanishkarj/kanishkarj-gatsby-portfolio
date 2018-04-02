@@ -22,7 +22,7 @@ First we'll create the required folders to save our files. Open the terminal, an
 
 ```shell
 mkdir [folder-name] && cd [folder-name]
-mkdir src src/assets src/assets/fonts src/assets/js src/assets/media src/assets/scss
+mkdir src src/assets src/assets/fonts src/assets/js src/assets/media src/assets/scss config
 ```
 
 ## Creating required files
@@ -30,7 +30,7 @@ mkdir src src/assets src/assets/fonts src/assets/js src/assets/media src/assets/
 Execute the following commands in the terminal :
 
 ```shell
-touch .babelrc .gitignore README.md webpack.common.js webpack.dev.js webpack.prod.js src/app.html src/assets/js/app.js src/assets/app.scss
+touch .babelrc .gitignore README.md config/webpack.common.js config/webpack.dev.js config/webpack.prod.js src/app.html src/assets/js/app.js src/assets/app.scss
 ```
 
 ## Initiating npm and git
@@ -47,10 +47,10 @@ npm init
 Lets now install webpack and other modules that we'll need. Run the following command in the terminal :
 
 ```shell
-npm install -D webpack-dev-server webpack webpack-merge
+npm install -D webpack-dev-server webpack webpack-merge webpack-cli
 ```
 
-It's obvious why we installed webpack. but why the other two? webpack basically bundles all the modules and emits them into a file. but during development, we cannot afford to repetitively bundle the modules after every small change. This is where webpack-dev-server comes into play. this package sets up a development server with hot reloading and other cool features. Also if you noticed we have 3 webpack config files. webpack.common.js contains the common configurations. webpack.dev.js contains configurations specific to the development stage, and similarly webpack.prod.js for Production specific configurations. Now we have to import webpack.common.js in the other two files and merge their specific configurations with it. This is where the webpack-merge package comes into play, it merges the webpack configuration objects.
+It's obvious why we installed webpack. but why the other two? webpack basically bundles all the modules and emits them into a file. but during development, we cannot afford to repetitively bundle the modules after every small change. This is where webpack-dev-server comes into play. This package sets up a development server with hot reloading and other cool features. Also if you noticed we have 3 webpack config files. webpack.common.js contains the common configurations. webpack.dev.js contains configurations specific to the development stage, and similarly webpack.prod.js for Production specific configurations. Now we have to import webpack.common.js in the other two files and merge their specific configurations with the common one. This is done by the webpack-merge package.
 
 ## Writing npm scripts
 
@@ -59,11 +59,15 @@ Add the following scripts to the scripts section in the package.json :
 > package.json
 ```javascript
 "scripts": {
-  "start": "webpack-dev-server --inline --hot --open --config webpack.dev.js",
-  "build": "webpack --config webpack.common.js",
-  "build:prod": "webpack --config webpack.prod.js"
+  "start": "webpack-dev-server --inline --hot --open --config config/webpack.dev.js",
+  "build": "webpack --config config/webpack.common.js",
+  "build:prod": "webpack -p --config config/webpack.prod.js"
 },
 ```
+
+_start_ : starts the webpack dev server
+_build_ : builds the project and outputs the files in developer mode.
+_build:prod_ : builds the project and outputs the files in production mode.
 
 ## Webpack Configuration
 
@@ -76,6 +80,19 @@ const config = {
 module.exports = config;
 ```
 
+## Defining the context
+
+Context refers to the base directory. it is an absolute path, for resolving entry points and loaders from the configuration. By default, the current directory is used, but it's recommended to pass a value in your configuration. This makes your configuration independent from the current working directory.
+
+``` javaScript
+const config = {
+  context: path.resolve(__dirname, "../src"),
+  // Rest of the configuration
+}
+```
+
+We are referencing it by '../src' rather than 'src/' because the path is defined with respect to the current directory, which is _config_.
+
 ## Defining the entry point
 
 Let's define the entry point for the application :
@@ -86,6 +103,16 @@ const config = {
 }
 ```
 
+Let us assume a case where we need to specify different entry points. In that case we define _entry_ as an object, then specify the entry path with a name to it. For example, here below we are calling it 'app' :
+
+```javaScript
+const config = {
+  entry: {
+    app: './assets/js/app.js'
+  },
+}
+```
+
 ## Defining the output point
 
 This is the path where the bundled files will be saved. we shall define the output point as an object with 2 attributes, path, and filename :
@@ -93,21 +120,23 @@ This is the path where the bundled files will be saved. we shall define the outp
 - path : Its the absolute path to the prefered output directory.
 - filename : it determines the name of each output bundle.   
 
-Now, we cannot define path variable with a definite string. as it would change if the repository is copied to another directory or to another computer. Hence we use Node js path module which gives us the absolute path to the project root directory.
+Now, we cannot define path variable with a definite string. as it would change if the repository is copied to another directory or to another computer. Hence we use Node js _Path_ module which gives us the absolute path to the project root directory.
 
 ```javascript
 const path = require('path');
 
 const config = {
-  entry: './src/app.js',
+  entry: {
+    app: './assets/js/app.js'
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'assets/js/bundle.js'
   }
 }
 ```
 
-Note that when configuring multiple output paths, you should use one of the following substitutions to give each bundle a unique name. One of which id entry name :
+Note that when configuring multiple output paths, i.e when multiple output files are expected; you should use one of the following substitutions to give each bundle a unique name. For example:
 
 ```javaScript
 filename: "assets/js/[name].bundle.js"
@@ -115,20 +144,9 @@ filename: "assets/js/[name].bundle.js"
 
 for other naming options <https://webpack.js.org/configuration/output/#output-filename>
 
-## Defining the context
-
-Context refers to the base directory. it is an absolute path, for resolving entry points and loaders from the configuration. By default, the current directory is used, but it's recommended to pass a value in your configuration. This makes your configuration independent from the current working directory.
-
-``` javaScript
-const config = {
-  context: path.resolve(__dirname, "src"),
-  // Rest of the configuration
-}
-```
-
 ## Configuring the development server
 
-The dev server package sets up a local development server, hence you won't be accessing the application using file path. Also if you look at the npm start script : ```webpack-dev-server --inline --hot --open --config webpack.dev.js```. --hot enables hot-reloading which means the code will be bundled as soon as webpack notices changes in the files.
+The dev server package sets up a local development server, hence you won't be accessing the application using file path. Also if you look at the npm _start_ script : ```webpack-dev-server --inline --hot --open --config webpack.dev.js```. --hot enables hot-reloading which means the code will be re-bundled as soon as webpack notices changes in the files.
 
 The development configurations will be written in the webpack.dev.js file. first, we import webpack-merge and webpack.common.js, and the Node js path package.
 
@@ -170,25 +188,19 @@ _packages.json_
   "description": "",
   "main": "webpack.common.js",
   "scripts": {
-    "start": "webpack-dev-server  --inline --hot --open --config webpack.dev.js",
-    "build": "webpack --config webpack.common.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "start": "webpack-dev-server --inline --hot --open --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.common.js",
+    "build:prod": "webpack --config config/webpack.prod.js"
   },
-  "keywords": [
-    "webpack"
-  ],
-  "author": "kanishkarj",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7",
-    "webpack-merge": "^4.1.1"
-  },
-  "dependencies": {
-
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2"
   }
 }
-
 ```
 
 _webpack.common.js_
@@ -196,12 +208,12 @@ _webpack.common.js_
 const path = require('path')
 
 const config = {
-  context: path.resolve(__dirname, "src"),
+  context: path.resolve(__dirname, "../src"),
   entry: {
     app: './assets/js/app.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'assets/js/[name].bundle.js'
   }
 };

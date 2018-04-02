@@ -4,18 +4,20 @@ date: "29 Jan, 2018"
 layout: "post"
 subtitle: "A powerful and versatile build tool."
 path: "/blog/intro-to-webpack/"
+headerImg: "./static/webpack-snap-from-website.png"
 categories:
   - Webpack
   - Web development
   - Build tools
-headerImg: "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png"
 ---
 
 # Introduction to Webpack
 
-Webpack is a very powerful and versatile tool that can be utilized to perform a wide range of tasks. By definition, it is a module bundler. i.e. it is a build tool that takes modules with dependencies and emits static assets representing those modules. When working on bigger projects, the codebase gets bigger and unmanageable over time. Hence to enhance the understandability and scalability of the code, we split the code into modules. Hence, Webpack basically takes in all your modules and stitches them together into a single file.
+Webpack is a powerful module bundler that is used in frontend web development. By definition, a module bundler is a build tool that takes modules with dependencies and emits static assets representing those modules. When working on bigger projects, the codebase gets bigger and unmanageable over time. Hence to maintain the understandability and scalability of the code, we split the code into modules. A module bundler basically takes in all your modules and stitches them together into a single file.
 
 ---------------------------
+
+![Chinese Salty Egg](./webpack-snap-from-website.png)
 
 ## Lets get started !
 
@@ -26,7 +28,7 @@ So before getting started with setting up Webpack, we need to understand the fou
 - Loaders
 - Plugins
 
-Now, lets get to them one by one!
+Now, lets get to them one by one!                
 
 #### Entry
 
