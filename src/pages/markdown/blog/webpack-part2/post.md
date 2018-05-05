@@ -2,7 +2,7 @@
 title: "Webpack Configuration Part 1 : Getting started"
 date: "30 Jan, 2018"
 layout: "post"
-subtitle: "Getting started with configuring Webpack from scratch."
+subtitle: "Getting started with configuring Webpack."
 path: "/blog/webpack-getting-started/"
 categories:
   - Webpack
@@ -22,7 +22,7 @@ First we'll create the required folders to save our files. Open the terminal, an
 
 ```shell
 mkdir [folder-name] && cd [folder-name]
-mkdir src src/assets src/assets/fonts src/assets/js src/assets/media src/assets/scss config
+mkdir src src/assets src/assets/js src/assets/media src/assets/scss config
 ```
 
 ## Creating required files
@@ -30,7 +30,7 @@ mkdir src src/assets src/assets/fonts src/assets/js src/assets/media src/assets/
 Execute the following commands in the terminal :
 
 ```shell
-touch .babelrc .gitignore README.md config/webpack.common.js config/webpack.dev.js config/webpack.prod.js src/app.html src/assets/js/app.js src/assets/app.scss
+touch .babelrc .gitignore README.md config/webpack.common.js config/webpack.dev.js config/webpack.prod.js src/index.html src/assets/js/app.js src/assets/scss/app.scss
 ```
 
 ## Initiating npm and git
@@ -41,6 +41,8 @@ Execute the following commands in the terminal :
 git init
 npm init
 ```
+
+![Project file structure](./file-structure.png)
 
 ## Installing webpack and dependencies
 
@@ -177,6 +179,8 @@ module.exports = merge(common, {
 - _devServer.port_ : The port no. you want your application to be deployed to. [to learn more](https://webpack.js.org/configuration/dev-server/#devserver-port)
 - _devServer.stats_ : It lets you precisely control what bundle information gets displayed. [to learn more](https://webpack.js.org/configuration/dev-server/#devserver-stats-)
 - _devServer.open_ : If set true, the sever opens the browser. [to learn more](https://webpack.js.org/configuration/dev-server/#devserver-open)
+
+-----------------------------------------
 
 So this is what we have so far :
 

@@ -2,22 +2,22 @@
 title: "Introduction to Webpack"
 date: "29 Jan, 2018"
 layout: "post"
-subtitle: "A powerful and versatile build tool."
+subtitle: "Bundle your project with ease."
 path: "/blog/intro-to-webpack/"
-headerImg: "./static/webpack-snap-from-website.png"
+headerImg: "https://raw.githubusercontent.com/kanishkarj/kanishkarj.github.io/source/src/pages/markdown/blog/29-1-2018-webpack/webpack-snap-from-website.png"
 categories:
   - Webpack
   - Web development
   - Build tools
 ---
 
+If you have worked on front end web development using frameworks like Vue, React or angular. You might have noticed most of the projects use a package called webpack. Webpack is a tool used to configure these front end libraries to work with your project files and aid in building the application. So in this series of posts we'll see what is webpack and we'll write a webpack configuration.
+
 # Introduction to Webpack
 
 Webpack is a powerful module bundler that is used in frontend web development. By definition, a module bundler is a build tool that takes modules with dependencies and emits static assets representing those modules. When working on bigger projects, the codebase gets bigger and unmanageable over time. Hence to maintain the understandability and scalability of the code, we split the code into modules. A module bundler basically takes in all your modules and stitches them together into a single file.
 
 ---------------------------
-
-![Chinese Salty Egg](./webpack-snap-from-website.png)
 
 ## Lets get started !
 

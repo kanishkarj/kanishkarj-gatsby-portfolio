@@ -60,15 +60,7 @@ export const pageQuery = graphql `
             date
             layout
             categories
-            headerImg: ImageSharp {
-               childImageSharp {
-                 responsiveSizes(maxWidth: 400) {
-                   src
-                   srcSet
-                   sizes
-                 }
-               }
-             }
+            headerImg
           }
         }
       }
