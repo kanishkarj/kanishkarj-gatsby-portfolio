@@ -2,6 +2,7 @@
 title: "Webpack Configuration Part 2 : Loaders and Plugins"
 date: "3 Mar, 2018"
 layout: "post"
+index: 1
 subtitle: "Configuring Loaders and plugins in Webpack."
 path: "/blog/webpack-loaders-and-plugins"
 categories:
@@ -20,8 +21,8 @@ In this blog post, we'll set up webpack to read ES6/ES7 and transcompile them ba
 
 ```json
 {
-  test: /\.js$/, 
-  use: 'raw-loader' 
+  test: /\.js$/,
+  use: 'raw-loader'
 }
 ```
 

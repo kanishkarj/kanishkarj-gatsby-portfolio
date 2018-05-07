@@ -47,6 +47,7 @@ export const pageQuery = graphql `
     allMarkdownRemark(
       limit: 100
       filter: { frontmatter: {layout : {eq : "post"}}}
+      sort: { order: DESC, fields: [frontmatter___index] }      
     ) {
       edges {
         node {

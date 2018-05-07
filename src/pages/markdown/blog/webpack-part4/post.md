@@ -1,7 +1,8 @@
 ---
 title: "Webpack Configuration Part 3 : Advanced topics"
-date: "30 Jan, 2018"
+date: "30 Mar, 2018"
 layout: "post"
+index: 4
 subtitle: "Production configuration in webpack, and chunks in webpacks."
 path: "/blog/webpack-advanced/"
 categories:

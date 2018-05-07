@@ -65,7 +65,9 @@ export const postQuery = graphql `
         siteGitconnectedUrl
         }
     }
-    markdownRemark(frontmatter: { path : { eq : $path } } ) {
+    markdownRemark(
+        frontmatter: { path : { eq : $path } }
+      ) {
       id
       html
       frontmatter{

@@ -2,6 +2,7 @@
 title: "Introduction to Webpack"
 date: "30 Jan, 2018"
 layout: "post"
+index: 3
 subtitle: "Bundle your project with ease."
 path: "/blog/intro-to-webpack/"
 headerImg: "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png"

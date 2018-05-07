@@ -2,6 +2,7 @@
 title: "Webpack Configuration Part 1 : Getting started"
 date: "15 Feb, 2018"
 layout: "post"
+index: 2
 subtitle: "Getting started with configuring Webpack."
 path: "/blog/webpack-getting-started/"
 categories:
