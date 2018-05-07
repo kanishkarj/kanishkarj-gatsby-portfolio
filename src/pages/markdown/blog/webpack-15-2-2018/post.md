@@ -1,6 +1,6 @@
 ---
 title: "Webpack Configuration Part 1 : Getting started"
-date: "30 Jan, 2018"
+date: "15 Feb, 2018"
 layout: "post"
 subtitle: "Getting started with configuring Webpack."
 path: "/blog/webpack-getting-started/"
@@ -13,7 +13,7 @@ headerImg: "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-
 
 # Webpack Configuration Part 1 : Getting started
 
-In this blog post, we'll configure a webpack project from scratch. I would recommend that you read the previous post [Introduction to Webpack](www.google.com) if you haven't already. The following is for Linux/Mac systems. It is expected that you have Node js and npm installed.
+In this blog post, we'll configure a webpack project from scratch. I would recommend that you read the previous post [Introduction to Webpack](/blog/intro-to-webpack/) if you haven't already. The following is for Linux/Mac systems. It is expected that you have Node js and npm installed. We'll be configuring webpack 4, that is the latest version as of this time.
 
 ## Creating the required folders
 
@@ -166,7 +166,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/assets/media"),
     compress: true,
-    port: 8000,
+    port: 8004,
     stats: 'errors-only',
     open: true
   }
@@ -194,7 +194,7 @@ _packages.json_
   "scripts": {
     "start": "webpack-dev-server --inline --hot --open --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.common.js",
-    "build:prod": "webpack --config config/webpack.prod.js"
+    "build:prod": "webpack --optimize-minimize --config config/webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -236,7 +236,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/assets/media"),
     compress: true,
-    port: 8000,
+    port: 8004,
     stats: 'errors-only',
     open: true
   }

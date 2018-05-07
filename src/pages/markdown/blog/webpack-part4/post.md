@@ -17,7 +17,7 @@ In this post we'll make some changes to our configuration so that the finally bu
 
 To minimze files we use `uglifyjs-webpack-plugin`. To configure it, we first import _webpack.common.js_ in _webpack.prod.js_ : 
 
-_webpack.prod.js_ 
+**webpack.prod.js** 
 ```javascript
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
@@ -64,9 +64,9 @@ new webpack.DefinePlugin({
 })
 ```
 
-So at the end of this we have : 
+So at the end of this we have :
 
-_webpack.prod.js_
+**webpack.prod.js**
 ```javascript
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -90,15 +90,8 @@ module.exports = merge(common, {
 
 Chunks enables one to split code into different bundles. This can be used to improve performance of the application. For understanding this more clearly lets create another JS, SCSS, HTML file. 
 
-_/src/assets/js/page.js_
-```javascript
-let temp = "page.js";
-const func = (val) => console.log(val);
 
-func(temp);
-```
-
-_/src/assets/scss/page.scss_
+**/src/assets/scss/page.scss**
 ```SCSS
 $bgcolor: gray;
 body {
@@ -106,7 +99,17 @@ body {
 }
 ```
 
-_/src/page.html_
+**/src/assets/js/page.js**
+```javascript
+import '../scss/page.scss';
+
+let temp = "page.js";
+const func = (val) => console.log(val);
+
+func(temp);
+```
+
+**/src/page.html**
 ```HTML
 <!DOCTYPE html>
 <html>
@@ -135,6 +138,7 @@ const config = {
     app: './assets/js/app.js',
     page: './assets/js/page.js'
   },
+  // ...
 }
 ```
 
@@ -144,8 +148,9 @@ Here `app` and `page` are chunk names. Chunks are basically names used to identi
 
 ```javascript
 const config = {
-  plugins: [
-        new CleanWebpackPlugin(['dist']),
+    // ...
+    plugins: [
+        // ...
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
@@ -161,64 +166,6 @@ const config = {
 ```
 
 We have created a new instance of HTMLWebpackPlugin with the configuration for _page.html_. Now below it we have added a new line called `chunks`, which is an array that defines all the chunks the particular html file will be using. On building the project you'll notice that 2 files are created _index.html_ and _page.html_. On opening you'll find that the specified js file is referenced in it.
-
-### Vendor modules
-
-Let us say we are using jquery in the project, in both the files app.js and bundle.js. So we'll be importing jquery in both our files. Which is not required, we can rather import all such external libraries into another JS file and reference that in the HTML file. So to do that first lets install jquery, execute the following on the command line :
-
-```shell
-npm i jquery
-```
-
-Now require jquery on top of both the js files : 
-
-_app.js and bundle.js_
-```javascript
-// ...
-require('jquery');
-
-// ...
-```
-
-To extract all the common libraries from the JS files we'll be using CommonsChunkPlugin which is defined inside webpack. Hence first we'll import webpack in our _webpack.common.js_ :
-
-```javascript
-// ...
-const webpack = require('webpack');
-
-const config = {
- // ...
-}
-```
-
-Now inside the plugins array we instantiate a CommonsChunkPlugin object in it : 
-```javascript
-new webpack.optimize.CommonsChunkPlugin({
-  name: 'vendor'
-})
-```
-
-Here the _name_ attribute specifies the chunk name for the common libraries bundle. Next we use the `vendor` chunk inside each of the html file :
-
-```javascript
-const config = {
-  plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'index.html',
-            chunks: ['vendor','app']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'page.html',
-            template: 'page.html',
-            chunks: ['vendor','page']
-        }),
-    ]
-}
-```
-
-We have just added the `vendor` chunk to the chunks array. The order matters, as we'll be using them in the other following chunks. Hence the vendor chunk must always be defined first. On building the application you'll notice a new file will be created called `vendor.bundle.js` with the jquery code which will be huge. While the `page.bundle.js` and `app.bundle.js` will be small files. page.html and index.html will be referencing both the files vendor.bundle.js and its specific js files.
 
 ----------------------------
 

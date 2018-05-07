@@ -1,6 +1,6 @@
 ---
 title: "Webpack Configuration Part 2 : Loaders and Plugins"
-date: "30 Jan, 2018"
+date: "3 Mar, 2018"
 layout: "post"
 subtitle: "Configuring Loaders and plugins in Webpack."
 path: "/blog/webpack-loaders-and-plugins"
@@ -8,20 +8,26 @@ categories:
   - Webpack
   - Web development
   - Build tools
+  - Loaders and plugins
 headerImg: "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png"
 ---
 
-# Webpack Configuration Part 1 : HTML, CSS Aand JS
+# Webpack Configuration Part 2 : HTML, CSS and JS
 
-In this blog post, we'll set up webpack to read ES6/ES7 and transcompile them back to ES5. Then we'll process SASS to CSS. First lets learn what are loaders and plugins.
+In this blog post, we'll set up webpack to read ES6/ES7 and transcompile them back to ES5. Then we'll process SASS to CSS. First let's learn what are loaders and plugins.
 
 *Loaders:* They allow one to load files other than javascript and process them. Loaders can be configured by defining 2 things _test_ and _use_. _test_ defines what type of files will be selected and _use_ defines which loader will operate over it. Eg :
 
-{ test: /\.js$/, use: 'raw-loader' }
+```json
+{
+  test: /\.js$/, 
+  use: 'raw-loader' 
+}
+```
 
 *Plugins:* Loaders are specific to particular file types. But plugins are more generalized and powerful. They can be used to perform tasks like minification. They can be used by importing them and adding them to the plugins array. The instances of the plugins are configurable.
 
-First we define the _module_  object right after the output object in webpack.common.js. then inside it we define a array called _rules_ which will consist of configuration for each loader.
+First, we define the _module_  object right after the output object in webpack.common.js. then inside it, we define an array called _rules_ which will consist of configuration for each loader.
 
 ```javascript
 output: {
@@ -42,7 +48,7 @@ We shall use the _babel-loader_ package to read ES7 js files. To install babel-l
 npm install -D babel-loader babel-core babel-polyfill babel-preset-env
 ```
 
-Now we will define a Loader to read javascript and transcompile it from ES7 to ES5( latest standard supported by all the browsers). Lets add a config object inside the rules array :  
+Now we will define a Loader to read javascript and transcompile it from ES7 to ES5( latest standard supported by all the browsers). let's add a config object inside the rules array :  
 
 ```javascript
 module: {
@@ -65,7 +71,7 @@ _exclude_ : This defines which directory the loader should avoid while parsing.
 
 _use_ : This tells which loader it should use. Here the use attribute is defined in a simple way. The actual configuration of babel-loader is done in _.babelrc_ :
 
-_.babelrc_
+**.babelrc**
 ```json
 {
   "presets": ["env"]
@@ -76,7 +82,7 @@ That is a basic configuration, for more knowledge about configuring babel [check
 
 
 
-Now lets test if our configuration works. enter the following code inside _/src/assets/app.js_ :
+Now let's test if our configuration works. enter the following code inside _/src/assets/app.js_ :
 
 ```javascript
 let temp = 5;
@@ -85,11 +91,11 @@ const func = (val) => console.log(val);
 func(temp);
 ```
 
-Then run `npm build` in your command line. Open the `/dist/` folder, and you can see bundled files in it. Now open src/assets/app.js and search for "console.log(5)", you should find it. If you noticed above, the code we wrote was written in ES7 but the bundled code is in ES5.
+Then run `npm build` on your command line. Open the `/dist/` folder, and you can see bundled files in it. Now open src/assets/app.js and search for "console.log(5)", you should find it. If you noticed above, the code we wrote was written in ES7 but the bundled code is in ES5.
 
 ## Clear `dist` directory
 
-Every time we bundle the code, we have to clear the dist directory manually. Hence we'll use a plugin to do this job for us. First lets install it, run the following in your command line : 
+Every time we bundle the code, we have to clear the dist directory manually. Hence we'll use a plugin to do this job for us. First let's install it, run the following in your command line : 
 
 ```shell
 npm i -D clean-webpack-plugin
@@ -122,16 +128,16 @@ const config = {
 
 For more information on CleanWebpackPlugin check out the docs [here](https://github.com/johnagan/clean-webpack-plugin).
 
-Until now we only we only have bundled JS files, what about other files such as HTML and CSS ? Lets get to it.
+Until now we only we only have bundled JS files, what about other files such as HTML and CSS ? let's get to it.
 
 ## Reading HTML files
 
-This is how we will implement reading html files. First webpack reads the HTML file as string, then it prints the string back into a HTML file in the directory specified. It is easy to do this, we'll do this with the help of a loader and a plugin : 
+This is how we will implement reading HTML files. First webpack reads the HTML file as string, then it prints the string back into a HTML file in the directory specified. It is easy to do this, we'll do this with the help of a loader and a plugin : 
 
 [html-loader](https://github.com/webpack-contrib/html-loader) : Exports HTML as string. HTML is minimized when the compiler demands.
 [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) : Simplifies creation of HTML files to serve your webpack bundles.
 
-Lets install them : 
+let's install them : 
 ```shell
 npm i -D html-loader html-webpack-plugin
 ```
@@ -154,15 +160,15 @@ The config for HTML loader. It is similar to the config we wrote for js :
   },
 ```
 
-_use.options.minimize_ : To minify the html files.
-_use.options.removeComments_ : All the comments in the HTML file will be discarded.
-_use.options.collapseWhitespace_ : All whitespaces will be removed.
+_use.options.minimize_ : To minify the html files.                
+_use.options.removeComments_ : All the comments in the HTML file will be discarded.           
+_use.options.collapseWhitespace_ : All whitespaces will be removed.               
 
 The Above configuration will reduce the bundle size. Hence will have a great impact on the performance.
 
 Import `html-webpack-plugin` in webpack.common.js :
                
-`webpack.common.js`
+**webpack.common.js**
 ```javascript
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 ```
@@ -221,7 +227,7 @@ For processing CSS/SASS through webpack it first loads the css first into the js
 
 Now we install the dependencies :
 ```shell
-npm i -D sass-loader node-sass css-loader style-loader extract-text-webpack-plugin
+npm i -D sass-loader node-sass css-loader style-loader extract-text-webpack-plugin@next
 ```
 First we import `extract-text-webpack-plugin` and then instantiate it with the file output path.
 
@@ -235,7 +241,7 @@ const ExtractCSSPlugin = new ExtractTextPlugin({
 });
 ```
 
-Now lets configure webpack to use CSS and SASS loader :
+Now let's configure webpack to use CSS and SASS loader :
 
 ```javascript
 const config = {
@@ -278,7 +284,7 @@ Now that needs some explanation.
   - _fallback_ : Loader that should be used when the CSS is not extracted(i.e. in an additional chunk when allChunks: false).
 * We also have added the extractPlugin to the plugins array.
 
-Now lets test this. Add the following style to _/assets/scss/app.scss_ :
+Now let's test this. Add the following style to _/assets/scss/app.scss_ :
 ```scss
 $bgcolor: #a80c0c;
 body {
@@ -291,14 +297,19 @@ For webpack to recognise the SASS file we have to import it in our app.js :
 require('../scss/app.scss');
 ```
 
-Now lets test if everything is working. Open command line and run `npm run build`. Now if you open `/dist/assets/css/app.css', you should be able to see :
+Now let's test if everything is working. Open command line and run `npm run build`. Now if you open `/dist/assets/css/app.css', you should be able to see :
 ```css
 body{background:#a80c0c}
 ```
 
 ## Loading images
 
-Currently our config can bundle all files except images. For bundling images we use file-loader. The config for loading images : 
+Currently our config can bundle all files except images. For bundling images we use file-loader. First we install it:  
+```shell
+npm i -D file-loader
+```
+
+The config for loading images :
 
 ```javascript
 {
@@ -317,15 +328,16 @@ Currently our config can bundle all files except images. For bundling images we 
       
 More details can be found [here](https://github.com/webpack-contrib/file-loader).
 
-Now lets add images, The images should be saved inside /src/assets/media/. We also have to import the image in the HTML file. According to our webpack config the files will be saved in _assets/media_ so we'll reference that path in our HTML file :
+Now let's add images, The images should be saved inside /src/assets/media/. We also have to import the image in the HTML file. According to our webpack config the files will be saved in _assets/media_ so we'll reference that path in our HTML file :
 
 ```html
 <img src="./assets/media/image.jpeg" alt="">
 ```
 
-Lets test the config, run `npm run start` from the command line. The browser should open up showing a red page with the image. Here's the configuration we wrote till now : 
-
-_/config/webpack.common.js_
+let's test the config, run `npm run start` from the command line. The browser should open up showing a red page with the image. Here's the configuration we wrote till now : 
+                              
+                              
+**/config/webpack.common.js**
 ```javascript
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -374,7 +386,7 @@ const config = {
                             }
                         }
                     ],
-                    fallback: 'style-loader'
+                    fallback: 'style-loader'                        
                 })
             },
             {
@@ -402,15 +414,22 @@ const config = {
 module.exports = config;
 ```
 
-_/src/assets/scss/app.scss_
+**.babelrc**
+```json
+{
+    "presets": ["env"]
+}
+```
+                       
+**/src/assets/scss/app.scss**
 ```scss
 $bgcolor: #a80c0c;
 body {
     background: $bgcolor;
 }
 ```
-
-_/src/assets/js/app.js_
+                      
+**/src/assets/js/app.js**
 ```javascript
 import '../scss/app.scss';
 
@@ -419,8 +438,8 @@ const func = (val) => console.log(val);
 
 func(temp);
 ```
-
-_/src/index.html_
+                                   
+**/src/index.html**
 ```html
 <!DOCTYPE html>
 <html>

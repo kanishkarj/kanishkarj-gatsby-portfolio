@@ -6,10 +6,7 @@ const IndexPage = ({data}) => (<div>
   <div className="row mt-5"></div>
   <section className="jumbotron text-center mt-4">
     <div className="container">
-      <h1 className="jumbotron-heading">Blog</h1>
-      <p className="lead text-muted">
-        I write blogs mainly on Application development, development tooling, and on Linux.
-      </p>
+      <h1 className="jumbotron-heading blog-heading">Codenizant</h1>
     </div>
   </section>
   <div className="container">

@@ -9,7 +9,8 @@ const AboutComponent = () => (<div className="mt-5 mb-3 font-rale">
       </h2>
       <hr/>
       <p className="home-about"> 
-        Hi! I'm Kanishkar J, a Computer Science and Engineering undergraduate student studying at Indian Institute of Technology Indore.  I am an enthusiastic full-stack software developer and have worked with a wide range of technologies. My work has mostly been focused on Full-stack web application development.
+        Hi! I'm Kanishkar J, a Software developer from India. Currently am pursuing my Undergraduate studies from IIT Indore. 
+        My work mainly has been on Web technologies. I have experience with a wide range of technology stacks, and am willing to explore more !
       </p>
     </div>
     <div className="col-md-3">

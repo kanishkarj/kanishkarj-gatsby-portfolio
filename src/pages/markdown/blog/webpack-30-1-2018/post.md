@@ -1,10 +1,10 @@
 ---
 title: "Introduction to Webpack"
-date: "29 Jan, 2018"
+date: "30 Jan, 2018"
 layout: "post"
 subtitle: "Bundle your project with ease."
 path: "/blog/intro-to-webpack/"
-headerImg: "https://raw.githubusercontent.com/kanishkarj/kanishkarj.github.io/source/src/pages/markdown/blog/29-1-2018-webpack/webpack-snap-from-website.png"
+headerImg: "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png"
 categories:
   - Webpack
   - Web development
