@@ -6,14 +6,13 @@ const IndexPage = ({data}) => (<div>
   <div className="row mt-5"></div>
   <section className="jumbotron text-center mt-4">
     <div className="container">
-      <h1 className="jumbotron-heading">Contact Me</h1>
+      <h1 className="jumbotron-heading blog-heading">Contact Me</h1>
     </div>
   </section>
   <div className="container mt-5 mb-5">
     <form className="" action="https://formcarry.com/s/Sy_0bp44M" method="post">
       <div className="form-group">
         <input name="email" type="email" className="form-control square-border" aria-describedby="emailHelp" placeholder="Email"/>
-        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div className="form-group">
         <input name="name" type="text" className="form-control square-border" aria-describedby="emailHelp" placeholder="Name"/>

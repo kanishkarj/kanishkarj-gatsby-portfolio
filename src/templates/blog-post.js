@@ -5,7 +5,7 @@ export default function Template({data}) {
   const meta = data.site.meta;
   const {markdownRemark: post} = data;
   return (<div>
-    <Helmet title={meta.siteUrl} meta={[
+    <Helmet title={meta.title} meta={[
         {
           name: 'twitter:card',
           content: 'summary'

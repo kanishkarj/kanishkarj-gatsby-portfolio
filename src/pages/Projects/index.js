@@ -6,10 +6,7 @@ const IndexPage = ({data}) => (<div>
   <div className="row mt-5"></div>
   <section className="jumbotron text-center mt-4">
     <div className="container">
-      <h1 className="jumbotron-heading">My Work</h1>
-      <p className="lead text-muted">
-        My work is majorly in Javascript and Python. I have worked with Node js and Django in the realm of backend web development. I also have worked with Angular js, React js and Vue js in frontend development. 
-      </p>
+      <h1 className="jumbotron-heading blog-heading">Projects</h1>
     </div>
   </section>
   <div className="container">

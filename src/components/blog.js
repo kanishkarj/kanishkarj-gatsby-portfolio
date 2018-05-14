@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const BlogComponent = ({data}) => {
+  let count = 0;
   return (<div className="container mt-5">
     <hr/>
     <h2 className="text-center">
@@ -12,30 +13,32 @@ const BlogComponent = ({data}) => {
 
       {
         data.map(post => {
-
-          const postData = post.node.frontmatter;
-
+          count++;
+          if(count>=4) 
+            return;
+          let imgPath = `https://cdn-images-1.medium.com/max/800/${post.virtuals.previewImage.imageId}`
+          let url = `https://medium.com/@kanishkarj/${post.slug}-${post.id}`
           return (
-            <div key={postData.id} className="col-md-4 mt-2 mb-2">
-            <Link className="card card-link mt-2 mb-2 full-height" to={post.node.frontmatter.path}>
-              <img className="card-img-top" src={post.node.frontmatter.headerImg} alt=""/>
+            <div key={post.id} className="col-md-4 mt-2 mb-2">
+            <a target='blank' className="card card-link mt-2 mb-2 full-height" href={url}>
+              <img className="card-img-top" src={imgPath} alt=""/>
               <div className="card-body">
-                <h5 className="card-title">{post.node.frontmatter.title}</h5>
+                <h5 className="card-title">{post.title}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">
-                  <time>{post.node.frontmatter.date}</time>
+                  <time>{post.firstPublishedAt}</time>
                 </h6>
                 <ul className="list-inline">
                   {
-                    post.node.frontmatter.categories.map((cat) => (<li className="list-inline-item">
+                    post.virtuals.tags.map((cat) => (<li className="list-inline-item">
                       <h6>
-                        <span className="badge badge-secondary">{cat}</span>
+                        <span className="badge badge-secondary">{cat.name}</span>
                       </h6>
                     </li>))
                   }
                 </ul>
-                <p className="card-text">{post.node.frontmatter.subtitle}</p>
+                <p className="card-text">{post.virtuals.subtitle}</p>
               </div>
-            </Link>
+            </a>
           </div>
         )
         })
