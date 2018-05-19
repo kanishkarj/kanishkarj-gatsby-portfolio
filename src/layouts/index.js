@@ -4,6 +4,10 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import style from './index.scss'
 
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faBrands from '@fortawesome/fontawesome-free-brands'
+import faSolid from '@fortawesome/fontawesome-free-solid'
+
 const Header = () => (<div>
   <nav className="navbar navbar-expand navbar-dark fixed-top flex-column flex-md-row">
     <div className="ml-auto mr-auto" id="navbarSupportedContent">
@@ -41,28 +45,28 @@ const CustFooter = (data) => {
       <div className="mr-auto ml-auto">
         <ul className="navbar-nav">
           <li className='nav-item'>
-            <a href={meta.siteEmailUrl} target="_blank" className="nav-link">
-              <i className="fa fa-envelope" aria-hidden="true"></i>
+            <a href={'mailto:'+meta.siteEmailUrl} target="_blank" className="nav-link footer-icon">
+              <FontAwesomeIcon icon={faSolid.faEnvelope} />
             </a>
           </li>
           <li className='nav-item'>
-            <a href={meta.siteGithubUrl} target="_blank" className="nav-link">
-              <i className="fa fa-github" aria-hidden="true"></i>
+            <a href={meta.siteGithubUrl} target="_blank" className="nav-link footer-icon">
+            <FontAwesomeIcon icon={faBrands.faGithub} />
             </a>
           </li>
           <li className='nav-item'>
-            <a href={meta.siteLinkedInUrl} target="_blank" className="nav-link">
-              <i className="fa fa-linkedin" aria-hidden="true"></i>
+            <a href={meta.siteLinkedInUrl} target="_blank" className="nav-link footer-icon">
+              <FontAwesomeIcon icon={faBrands.faLinkedinIn} />
             </a>
           </li>
           <li className='nav-item'>
-            <a href={meta.siteTwitterUrl} target="_blank" className="nav-link">
-              <i className="fa fa-twitter" aria-hidden="true"></i>
+            <a href={meta.siteTwitterUrl} target="_blank" className="nav-link footer-icon">
+            <FontAwesomeIcon icon={faBrands.faTwitter} />
             </a>
           </li>
           <li className='nav-item'>
-            <a href={meta.siteGitconnectedUrl} target="_blank" className="nav-link">
-              <i className="fa fa-git" aria-hidden="true"></i>
+            <a href={meta.siteMediumUrl} target="_blank" className="nav-link footer-icon">
+            <FontAwesomeIcon icon={faBrands.faMediumM} />
             </a>
           </li>
         </ul>

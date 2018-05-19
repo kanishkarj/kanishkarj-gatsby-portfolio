@@ -1,8 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~prismjs/themes/prism-solarizedlight.css";
 @import url('https://fonts.googleapis.com/css?family=Skranji');
-$fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome";
+// @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css'); // $fa-font-path: "~@fontawesome/fontawesome-free-webfonts/webfonts";
+// /home/sentinel/work/kanishkarj.github.io/node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss
+// @import "~@fontawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 $theme-primary: #12182E;
 $theme-secondary: #46344E;
 $theme-main: #e9ecef;
@@ -70,4 +71,8 @@ nav {
 .blog-heading {
     font-family: 'Skranji', cursive;
     font-size: 3em;
+}
+
+.footer-icon {
+    padding: 1em !important;
 }

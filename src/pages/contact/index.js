@@ -7,6 +7,7 @@ const IndexPage = ({data}) => (<div>
   <section className="jumbotron text-center mt-4">
     <div className="container">
       <h1 className="jumbotron-heading blog-heading">Contact Me</h1>
+      <h6><b>kanishkarj</b> On <a  target="_blank" href="http://gitter.im/">gitter.im</a></h6>
     </div>
   </section>
   <div className="container mt-5 mb-5">

@@ -1,8 +1,13 @@
 module.exports = {
     siteMetadata: {
         title: `Kanishkar J`,
-        siteDescr: `Portfolio`,
+        siteDescr: `Kanishkar J`,
+        siteLocale: `en_US`,
+        siteTitle: `Kanishkar J`,
         siteAuthor: `Kanishkar J`,
+        siteType: `website`,
+        siteSiteName: `Kanishkar J`,
+        site: `Kanishkar J`,
         siteUrl: 'https://kanishkarj.github.com/',
         siteEmailUrl: `kanishkarj@hotmail.com`,
         siteEmailPretty: `kanishkarj@hotmail.com`,
@@ -14,6 +19,10 @@ module.exports = {
         siteGitconnectedPretty: 'kanishkarj',
         siteLinkedInUrl: 'https://www.linkedin.com/in/kanishkar-j-5ba02ab8/',
         siteLinkedInPretty: 'kanishkar-j-5ba02ab8',
+        siteMediumUrl: 'https://medium.com/@kanishkarj',
+        siteMediumPretty: 'kanishkarj',
+        siteGitterUrl: 'https://www.linkedin.com/in/kanishkar-j-5ba02ab8/',
+        siteGitterPretty: 'kanishkar-j-5ba02ab8',
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

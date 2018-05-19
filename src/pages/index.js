@@ -19,15 +19,21 @@ const IndexPage = ({data}) => {
         }, {
           name: 'twitter:site',
           content: meta.siteTwitterUrl
+        },{
+          property: 'og:locale',
+          content: meta.siteLocale
         }, {
           property: 'og:title',
-          content: "post.frontmatter.title"
+          content: meta.siteTitle
         }, {
           property: 'og:type',
-          content: 'article'
+          content: meta.siteType
+        }, {
+          property: 'og:site_name',
+          content: meta.siteSiteName
         }, {
           property: 'og:description',
-          content: "post.frontmatter.subtitle"
+          content: meta.siteDescr
         }, {
           property: 'og:url',
           content: meta.siteUrl
@@ -62,9 +68,13 @@ export const pageQuery = graphql `
     site {
       meta: siteMetadata {
         title
-        siteDescr
         siteUrl
+        siteDescr
+        siteLocale
+        siteTitle
         siteAuthor
+        siteType
+        siteSiteName
         siteTwitterUrl
         siteGithubUrl
         siteEmailUrl
